@@ -5,6 +5,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -15,10 +16,13 @@ dependencies {
     compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
 }
 
-jar {
-    baseName = "TradeCraft"
-    version = "1.0"
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Version': version,
+                'Main-Class': 'com.tradecraft.TradeCraft'
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
-
-
-mainClassName = "Hello"

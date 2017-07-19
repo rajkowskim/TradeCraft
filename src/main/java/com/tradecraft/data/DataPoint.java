@@ -2,7 +2,7 @@ package com.tradecraft.data;
 
 import org.joda.time.DateTime;
 
-public class Data {
+public class DataPoint {
     private DateTime dateTime;
     private double open;
     private double high;
@@ -10,7 +10,7 @@ public class Data {
     private double close;
     private double volume;
 
-    public Data(DateTime dateTime, double open, double high, double low, double close, double volume) {
+    public DataPoint(DateTime dateTime, double open, double high, double low, double close, double volume) {
         this.dateTime = dateTime;
         this.open = open;
         this.high = high;
