@@ -63,9 +63,9 @@ public class Contract {
         return "Contract " +
                 "\t["+buyTime+"]" +
                 "\t["+sellTime+"]" +
-                "\t\t["+(isLong ? "long" : "short")+"]" +
+                "\t["+(isLong ? "long" : "short")+"]" +
                 "\t\t[buyPrice=" + (int)buyPrice + "]" +
-                "\t\t[sellPrice=" + (int)sellPrice + "]" +
-                "\t\t[profit=" + getProfit() +"]";
+                "\t[sellPrice=" + (int)sellPrice + "]" +
+                "\t[profit=" + getProfit() +"]";
     }
 }

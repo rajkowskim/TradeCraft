@@ -33,7 +33,9 @@ public class TradeCraft {
 
                 if (contract != null) {
                     oneLoopProfit += contract.getProfit();
-//                    System.out.println(contract);
+                    if(sampleSize == 1) {
+                        System.out.println(contract);
+                    }
                 }
             }
 
