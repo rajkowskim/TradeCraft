@@ -47,18 +47,20 @@ public class TradeCraft {
         return profits.stream().mapToDouble(a -> a).average().orElse(0.0);
     }
 
-    private static double variance(List<Integer> profits) {
+    private static double getStdDev(List<Integer> profits) {
         double sum = profits.stream().mapToDouble(a -> a).sum();
         double sumMinusAverage = sum - getAvg(profits);
 
-        return sumMinusAverage * sumMinusAverage / (profits.size()-1);
+        double var = sumMinusAverage * sumMinusAverage / (profits.size()-1);
+
+        return Math.sqrt(var);
     }
 
     private static void displaySummary(List<Integer> profits) {
         System.out.println("=====Summary=====");
-        System.out.println("Min: \t"+ Collections.min(profits));
-        System.out.println("Max: \t"+ Collections.max(profits));
-        System.out.println("Avg: \t"+ (int)getAvg(profits));
-        //System.out.println("Var: \t"+ (int)variance(profits));
+        System.out.println("Min: \t\t"+ Collections.min(profits));
+        System.out.println("Max: \t\t"+ Collections.max(profits));
+        System.out.println("Avg: \t\t"+ (int)getAvg(profits));
+        System.out.println("Stddev: \t"+ (int) getStdDev(profits));
     }
 }
